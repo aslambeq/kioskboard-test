@@ -1,0 +1,26 @@
+{
+  "name": "kioskboard-test",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "engineStrict": true,
+  "engines": {
+    "node": ">=16.17.0 <17.0.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-simple-keyboard": "^3.4.226"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^2.1.0",
+    "vite": "^3.1.0"
+  }
+}
