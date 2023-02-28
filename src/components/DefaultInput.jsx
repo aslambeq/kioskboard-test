@@ -22,10 +22,9 @@ const DefaultInput = () => {
   }
 
   useEffect(() => {
-    logCarets()
-
     if (keyboardRef.current === null) return
     if (inputRef.current === null) return
+    logCarets()
 
     keyboardRef.current.setInput(input, inputName)
 
@@ -38,9 +37,13 @@ const DefaultInput = () => {
   const onChange = (input) => {
     setInput(input)
 
-    inputRef.current.focus()
+    // inputRef.current.selectionStart = 8
+    // inputRef.current.selectionEnd = 10
+    // inputRef.current.selectionStart = keyboardRef.current.getCaretPosition()
+    // inputRef.current.selectionEnd = keyboardRef.current.getCaretPositionEnd()
+    // inputRef.current.focus()
 
-    logCarets()
+    // logCarets()
   }
 
   const handleShift = () => {
@@ -54,7 +57,7 @@ const DefaultInput = () => {
      */
     if (button === '{shift}' || button === '{lock}') handleShift()
 
-    logCarets()
+    // logCarets()
   }
 
   const onChangeInput = (event) => {
@@ -71,7 +74,7 @@ const DefaultInput = () => {
         <input
           onFocus={(e) => {
             setInputName(e.target.name)
-            logCarets()
+            // logCarets()
           }}
           className='test-input'
           value={input}
@@ -80,8 +83,16 @@ const DefaultInput = () => {
           type='text'
           name={inputName}
           id='tel'
+          onSelect={(e) => {
+            console.log('e.target.selectionStart : ', e.target.selectionStart)
+            console.log('e.target.selectionEnd : ', e.target.selectionEnd)
+            e.target.selectionStart = e.target.selectionEnd; }}
           onBlur={(e) => {
             e.target.focus()
+            inputRef.current.selectionStart =
+              keyboardRef.current.getCaretPosition()
+            inputRef.current.selectionEnd =
+              keyboardRef.current.getCaretPositionEnd()
           }}
         />
         <Keyboard

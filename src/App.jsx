@@ -16,8 +16,8 @@ function App() {
         </a>
       </div>
 
-      {/* <DefaultInput /> */}
-      <NumberFormatInput />
+      <DefaultInput />
+      {/* <NumberFormatInput /> */}
     </div>
   )
 }
